@@ -52,7 +52,13 @@
       </el-table-column>
     </el-table>
 
-    <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />
+    <pagination
+      v-show="total>0"
+      :total="total"
+      :page.sync="listQuery.page"
+      :limit.sync="listQuery.limit"
+      @pagination="getList"
+    />
   </div>
 </template>
 
@@ -94,6 +100,10 @@ export default {
         this.list = response.data.items
         this.total = response.data.total
         this.listLoading = false
+        console.log("this.list >>>", this.list)
+        console.log("response.data.items >>>", response.data.items)
+        console.log("this.total >>>", this.total)
+        console.log("response.data.total >>>", response.data.total)
       })
     }
   }

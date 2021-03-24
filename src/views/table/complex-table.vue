@@ -35,7 +35,14 @@
       style="width: 100%;"
       @sort-change="sortChange"
     >
-      <el-table-column label="ID" prop="id" sortable="custom" align="center" width="80" :class-name="getSortClass('id')">
+      <el-table-column
+        label="ID"
+        prop="id"
+        sortable="custom"
+        align="center"
+        width="80"
+        :class-name="getSortClass('id')"
+      >
         <template slot-scope="{row}">
           <span>{{ row.id }}</span>
         </template>
@@ -228,6 +235,8 @@ export default {
   },
   created() {
     this.getList()
+    console.log("created의 this.total>>>>", this.total)
+    console.log("created의 this.list >>>>", this.list)
   },
   methods: {
     getList() {
@@ -235,7 +244,8 @@ export default {
       fetchList(this.listQuery).then(response => {
         this.list = response.data.items
         this.total = response.data.total
-
+        console.log("fetch 후 this.total>>>>", this.total)
+        console.log("fetch 후 this.list >>>>", this.list)
         // Just to simulate the time of the request
         setTimeout(() => {
           this.listLoading = false
@@ -340,6 +350,8 @@ export default {
         duration: 2000
       })
       this.list.splice(index, 1)
+      console.log("delete 후 this.list >>>>", this.list)
+      console.log("delete 후 this.total >>>>", this.total)
     },
     handleFetchPv(pv) {
       fetchPv(pv).then(response => {

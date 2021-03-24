@@ -88,12 +88,12 @@ import { CommentDropdown, PlatformDropdown, SourceUrlDropdown } from './Dropdown
 
 const defaultForm = {
   status: 'draft',
-  title: '', // 文章题目
-  content: '', // 文章内容
-  content_short: '', // 文章摘要
-  source_uri: '', // 文章外链
-  image_uri: '', // 文章图片
-  display_time: undefined, // 前台展示时间
+  title: '',
+  content: '',
+  content_short: '',
+  source_uri: '',
+  image_uri: '',
+  display_time: undefined,
   id: undefined,
   platforms: ['a-platform'],
   comment_disabled: false,
