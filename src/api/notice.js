@@ -9,6 +9,14 @@ export function fetchNoticeList(query) {
   });
 }
 
+// export function fetchNoticeDetail(id, query) {
+//   return request({
+//     url: `/vue-element-admin/notice/detail/${id}`,
+//     method: "get",
+//     params: query
+//   });
+// }
+
 export function fetchNoticeDetail(id) {
   return request({
     url: "/vue-element-admin/notice/detail",
@@ -33,10 +41,18 @@ export function createNotice(data) {
   });
 }
 
-export function updateNotice(data) {
+// export function updateNotice(data) {
+//   return request({
+//     url: "/vue-element-admin/notice/update",
+//     method: "post",
+//     data
+//   });
+// }
+
+export function updateNotice(id, query) {
   return request({
-    url: "/vue-element-admin/notice/update",
-    method: "post",
-    data
+    url: `/vue-element-admin/notice/detail/${id}`,
+    method: "put",
+    params: query
   });
 }

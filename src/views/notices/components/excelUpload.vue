@@ -33,6 +33,9 @@
             Title
           </MDinput>
         </div>
+        <section class="excelUploadSection">
+          <simpleUpload />
+        </section>
 
         <markdown-editor
           ref="markdownEditor"
@@ -61,7 +64,6 @@
         </div>
       </el-form>
     </div>
-
   </div>
   <!-- <router-view :key="$route.fullPath" /> -->
 
@@ -69,17 +71,28 @@
 
 <script>
 import MarkdownEditor from '@/components/MarkdownEditor'
-// import { fetchList, createArticle } from '@/api/article'
 import MDinput from '@/components/MDinput'
 import { mapActions, mapState } from 'vuex'
+import simpleUpload from './simpleUpload'
 
 export default {
-  name: 'Create',
-  components: { MarkdownEditor, MDinput },
+  name: 'ExcelUpload',
+  components: { MarkdownEditor, MDinput/* , UploadExcelComponent  */, simpleUpload },
+  props: {
+    beforeUpload: Function, // eslint-disable-line
+    onSuccess: Function// eslint-disable-line
+  },
 
   data() {
     return {
-
+      tableData: [],
+      tableHeader: [],
+      noData: "No Data",
+      loading: false,
+      excelData: {
+        header: null,
+        results: null
+      }
     }
   },
 
@@ -94,50 +107,26 @@ export default {
       return this.languageTypeList.en
     }
   },
+
   created() {
+    console.log("tableData>>>", this.tableData)
     this.getIdLength()
   },
   mounted() {
     // this.handleCreateNotice()
   },
+
   methods: {
 
     ...mapActions('notices', [
       'getIdLength',
       'handleCreateNotice'
     ])
-
-    // getIdLength() {
-    //   fetchList(this.$store.state.notices)
-    //     .then(response => {
-    //       this.postForm.id = response.data.total += 1
-    //     })
-    // },
-
-    // handleCreateNotice() {
-    //   createArticle(this.postForm).then((response) => {
-    //     console.log("this.postForm >>>>", this.postForm)
-    //     if (response.data === "success" && this.postForm.title && this.postForm.content) {
-    //       this.$store.state.notices.list.push(
-    //         this.postForm
-    //       )
-    //       alert('업데이트 되었습니다.')
-    //       this.$router.push({
-    //         path: '/notices'
-    //       })
-
-    //       console.log("this.$store.state.notices.list >>>>", this.$store.state.notices.list)
-    //       console.log("this.$store.state.notices.total >>>>", this.$store.state.notices.total)
-    //     } else {
-    //       alert('제목 및 내용을 입력해주세요.')
-    //     }
-    //   })
-    // },
   }
 }
 </script>
 
-<style>
+<style scoped>
 
 div.app-container {
   width: 100%;

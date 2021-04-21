@@ -1,250 +1,91 @@
-<p align="center">
-  <img width="320" src="https://wpimg.wallstcn.com/ecc53a42-d79b-42e2-8852-5126b810a4c8.svg">
-</p>
-
-<p align="center">
-  <a href="https://github.com/vuejs/vue">
-    <img src="https://img.shields.io/badge/vue-2.6.10-brightgreen.svg" alt="vue">
-  </a>
-  <a href="https://github.com/ElemeFE/element">
-    <img src="https://img.shields.io/badge/element--ui-2.7.0-brightgreen.svg" alt="element-ui">
-  </a>
-  <a href="https://travis-ci.org/PanJiaChen/vue-element-admin" rel="nofollow">
-    <img src="https://travis-ci.org/PanJiaChen/vue-element-admin.svg?branch=master" alt="Build Status">
-  </a>
-  <a href="https://github.com/PanJiaChen/vue-element-admin/blob/master/LICENSE">
-    <img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="license">
-  </a>
-  <a href="https://github.com/PanJiaChen/vue-element-admin/releases">
-    <img src="https://img.shields.io/github/release/PanJiaChen/vue-element-admin.svg" alt="GitHub release">
-  </a>
-  <a href="https://gitter.im/vue-element-admin/discuss">
-    <img src="https://badges.gitter.im/Join%20Chat.svg" alt="gitter">
-  </a>
-  <a href="https://panjiachen.github.io/vue-element-admin-site/donate">
-    <img src="https://img.shields.io/badge/%24-donate-ff69b4.svg" alt="donate">
-  </a>
-</p>
-
-English | [简体中文](./README.zh-CN.md) | [日本語](./README.ja.md) | [Spanish](./README.es.md)
-
-<p align="center">
-  <b>SPONSORED BY</b>
-</p>
-<table align="center" cellspacing="0" cellpadding="0">
-  <tbody>
-    <tr>
-      <td align="center" valign="middle" width="250">
-        <a href="https://www.duohui.cn/?utm_source=vue-element-admin&utm_medium=web&utm_campaign=vue-element-admin_github" title="多会" target="_blank">
-          <img height="60px" src="https://qiniu.cdn.duohui.co/brand/duohui.png" title="多会 - 活动服务销售平台">
-          <p>活动服务销售平台</p>
-        </a>
-      </td>
-      <td align="center" valign="middle" width="250">
-        <a href="https://youke.co/?utm_source=vue-element-admin&utm_medium=web&utm_campaign=vue-element-admin_github" title="有客" target="_blank">
-          <img height="60px" src="https://qiniu.cdn.duohui.co/brand/youke.png" title="有客 - 客户消息直达工作群">
-          <p>客户消息直达工作群</p>
-        </a>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-## Introduction
-
-[vue-element-admin](https://panjiachen.github.io/vue-element-admin) is a production-ready front-end solution for admin interfaces. It is based on [vue](https://github.com/vuejs/vue) and uses the UI Toolkit [element-ui](https://github.com/ElemeFE/element).
-
-[vue-element-admin](https://panjiachen.github.io/vue-element-admin) is based on the newest development stack of vue and it has a built-in i18n solution, typical templates for enterprise applications, and lots of awesome features. It helps you build large and complex Single-Page Applications. I believe whatever your needs are, this project will help you.
-
-- [Preview](https://panjiachen.github.io/vue-element-admin)
-
-- [Documentation](https://panjiachen.github.io/vue-element-admin-site/)
-
-- [Gitter](https://gitter.im/vue-element-admin/discuss)
-
-- [Donate](https://panjiachen.github.io/vue-element-admin-site/donate/)
-
-- [Wiki](https://github.com/PanJiaChen/vue-element-admin/wiki)
-
-- [Gitee](https://panjiachen.gitee.io/vue-element-admin/) 国内用户可访问该地址在线预览
-
-- Base template recommends using: [vue-admin-template](https://github.com/PanJiaChen/vue-admin-template)
-- Desktop: [electron-vue-admin](https://github.com/PanJiaChen/electron-vue-admin)
-- Typescript: [vue-typescript-admin-template](https://github.com/Armour/vue-typescript-admin-template) (Credits: [@Armour](https://github.com/Armour))
-- [awesome-project](https://github.com/PanJiaChen/vue-element-admin/issues/2312)
-
-**After the `v4.1.0+` version, the default master branch will not support i18n. Please use [i18n Branch](https://github.com/PanJiaChen/vue-element-admin/tree/i18n), it will keep up with the master update**
-
-**The current version is `v4.0+` build on `vue-cli`. If you find a problem, please put [issue](https://github.com/PanJiaChen/vue-element-admin/issues/new). If you want to use the old version , you can switch branch to [tag/3.11.0](https://github.com/PanJiaChen/vue-element-admin/tree/tag/3.11.0), it does not rely on `vue-cli`**
-
-**This project does not support low version browsers (e.g. IE). Please add polyfill by yourself.**
-
-## Preparation
-
-You need to install [node](https://nodejs.org/) and [git](https://git-scm.com/) locally. The project is based on [ES2015+](https://es6.ruanyifeng.com/), [vue](https://cn.vuejs.org/index.html), [vuex](https://vuex.vuejs.org/zh-cn/), [vue-router](https://router.vuejs.org/zh-cn/), [vue-cli](https://github.com/vuejs/vue-cli) , [axios](https://github.com/axios/axios) and [element-ui](https://github.com/ElemeFE/element), all request data is simulated using [Mock.js](https://github.com/nuysoft/Mock).
-Understanding and learning this knowledge in advance will greatly help the use of this project.
-
-[![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/PanJiaChen/vue-element-admin/tree/CodeSandbox)
-
-<p align="center">
-  <img width="900" src="https://wpimg.wallstcn.com/a5894c1b-f6af-456e-82df-1151da0839bf.png">
-</p>
-
-## Sponsors
-
-Become a sponsor and get your logo on our README on GitHub with a link to your site. [[Become a sponsor]](https://www.patreon.com/panjiachen)
-
-### Akveo
-<a href="https://store.akveo.com/products/vue-java-admin-dashboard-spring?utm_campaign=akveo_store-Vue-Vue_demo%2Fgithub&utm_source=vue_admin&utm_medium=referral&utm_content=github_banner"><img width="500px" src="https://raw.githubusercontent.com/PanJiaChen/vue-element-admin-site/master/docs/.vuepress/public/images/vue-java-banner.png" /></a><p>Get Java backend for Vue admin with 20% discount for 39$ use coupon code SWB0RAZPZR1M
-</p>
-
-### Flatlogic
-
-<a href="https://flatlogic.com/admin-dashboards?from=vue-element-admin"><img width="150px" src="https://wpimg.wallstcn.com/9c0b719b-5551-4c1e-b776-63994632d94a.png" /></a><p>Admin Dashboard Templates made with Vue, React and Angular.</p>
-
-## Features
-
-```
-- Login / Logout
-
-- Permission Authentication
-  - Page permission
-  - Directive permission
-  - Permission configuration page
-  - Two-step login
-
-- Multi-environment build
-  - Develop (dev)
-  - sit
-  - Stage Test (stage)
-  - Production (prod)
-
-- Global Features
-  - I18n
-  - Multiple dynamic themes
-  - Dynamic sidebar (supports multi-level routing)
-  - Dynamic breadcrumb
-  - Tags-view (Tab page Support right-click operation)
-  - Svg Sprite
-  - Mock data
-  - Screenfull
-  - Responsive Sidebar
+## 라스트오더 기업협업 프로젝트
 
-- Editor
-  - Rich Text Editor
-  - Markdown Editor
-  - JSON Editor
+<br/>
 
-- Excel
-  - Export Excel
-  - Upload Excel
-  - Visualization Excel
-  - Export zip
+### 1. 프로젝트 기간 : 21.03.15 ~ 21.04.09 (1개월)
 
-- Table
-  - Dynamic Table
-  - Drag And Drop Table
-  - Inline Edit Table
+<br/>
 
-- Error Page
-  - 401
-  - 404
+### 2. 참여자 : 유승현 (프론트엔드개발자)
 
-- Components
-  - Avatar Upload
-  - Back To Top
-  - Drag Dialog
-  - Drag Select
-  - Drag Kanban
-  - Drag List
-  - SplitPane
-  - Dropzone
-  - Sticky
-  - CountTo
+<br/>
 
-- Advanced Example
-- Error Log
-- Dashboard
-- Guide Page
-- ECharts
-- Clipboard
-- Markdown to html
-```
+### 3. 프로젝트 요약
 
-## Getting started
+#### 실제 어드민 페이지는 내부 서버이기에, 'Vue-Element-Admin' 패키지 설치 후 개인 작업 사항만 업데이트 하였습니다.
 
-```bash
-# clone the project
-git clone https://github.com/PanJiaChen/vue-element-admin.git
+- 마감 할인 플랫폼 '라스트오더'에서 한 달간 기업 협업 프로젝트 진행.
+- 'Vue.js'의 'Vue-Element-Admin' 패키지를 활용하여 어드민 페이지를 구축.
+- UI는 'Vue-Element-Ui'로 작업하였으며, 'Vuex' 스토어를 활용하여 데이터 상태관리.
+- API 개발이 완료 된 '모상품 관리'페이지는 API에 맞춰 개발 완료.
+- '공지사항', '라스트오더에게 요청' 페이지는 API 개발 후 통신이 가능하게 'Mockjs' 패키지로 통신 테스트 진행.
+  <br/>
+  <br/>
 
-# enter the project directory
-cd vue-element-admin
+### 4. 담당 업무
 
-# install dependency
-npm install
+`1주차`<br/>
+어드민 페이지 '기타관리' 탭에서 '공지사항' 페이지 구현
 
-# develop
-npm run dev
-```
+> **_구현 완료_**
+>
+> 1.  목데이터를 활용한 CRUD 기능 구현
+> 2.  검색, 정렬, 페이지네이션 기능 구현
+> 3.  'Vue-Element-Ui'를 활용한 스타일 구현
 
-This will automatically open http://localhost:9527
+`2주차`<br/>
+어드민 페이지 '기타관리' 탭에서 '라스트오더에게 요청' 페이지 구현
 
-## Build
+> **_구현 완료_**
+>
+> 1.  엑셀 파일 업로드/다운로드 기능 구현
+> 2.  Vuex를 활용하여 데이터 상태 관리 ('공지사항', '라스트오더에게 요청' 페이지)
 
-```bash
-# build for test environment
-npm run build:stage
+`3주차`<br/>
+어드민 페이지 '모상품 관리' 페이지 구현
 
-# build for production environment
-npm run build:prod
-```
+> **_구현 완료_**
+>
+> 1.  API 활용하여 Create, Read, Update 기능 구현
+> 2.  데이터 유/무에 따른 '상품 디테일 페이지', '새 상품 등록 페이지' 두개의 페이지를 하나의 컴포넌트로 관리
+> 3.  브라켓 노테이션으로 드롭다운 선택값을 검색바에서 참조하여 검색이 되도록 검색기능 구현
 
-## Advanced
+`4주차`<br/>
+어드민 페이지 '모상품 관리' 삭제 기능 구현 / '공지사항' 페이지 리팩토링
 
-```bash
-# preview the release environment effect
-npm run preview
+> **_구현 완료_**
+>
+> 1.  API 활용하여 Delete 기능 구현
+> 2.  '모상품 관리' API를 활용하여 '공지사항' 페이지 리팩토링
+>     <br/>
 
-# preview the release environment effect + static resource analysis
-npm run preview -- --report
+### 5. 적용 기술
 
-# code format check
-npm run lint
+- Front-End : `Vue.js`, `Vue-Element-Admin`, `Vue-Element-Ui`, `Vuex`, `Mockjs`
+- 협업에 사용 된 툴 : `Git Hub`, `Dooray`
+- Common : `RESTful API`
+  <br/>
+  <br/>
 
-# code format check and auto fix
-npm run lint -- --fix
-```
+### 6. 느낀점
 
-Refer to [Documentation](https://panjiachen.github.io/vue-element-admin-site/guide/essentials/deploy.html) for more information
+- 실제 현업에서 어떻게 프로젝트를 관리하는지, 백엔드와의 소통이 어떻게 이루어지는지 알 수 있는 좋은 경험이었습니다.
+- 프로젝트의 규모가 커질수록 상태, 라우터, api 등 각각의 페이지에서 관리하면 좋은 점에 대해서 이해 할 수 있었습니다.
+- UI보다 기능에 집중 할 수 있는 패키지를 활용하면서 보다 빠르게 개발 할 수 있는 패키지가 많음을 깨달았습니다.
+  <br/>
+  <br/>
 
-## Changelog
+### 7. 기타
 
-Detailed changes for each release are documented in the [release notes](https://github.com/PanJiaChen/vue-element-admin/releases).
+- gitHub 링크 : https://github.com/ysh1394/vue-element-admin-last-order-project
 
-## Online Demo
+- 데모 영상(링크) : https://drive.google.com/file/d/1BLeQNcRtKSen7iK9lj-rowggRpBVHWKd/view?usp=sharing
 
-[Preview](https://panjiachen.github.io/vue-element-admin)
+<br/>
+<br/>
+<br/>
 
-## Donate
+#### Reference
 
-If you find this project useful, you can buy author a glass of juice :tropical_drink:
-
-![donate](https://wpimg.wallstcn.com/bd273f0d-83a0-4ef2-92e1-9ac8ed3746b9.png)
-
-[Paypal Me](https://www.paypal.me/panfree23)
-
-[Buy me a coffee](https://www.buymeacoffee.com/Pan)
-
-## Browsers support
-
-Modern browsers and Internet Explorer 10+.
-
-| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)</br>Safari |
-| --------- | --------- | --------- | --------- |
-| IE10, IE11, Edge | last 2 versions | last 2 versions | last 2 versions |
-
-## License
-
-[MIT](https://github.com/PanJiaChen/vue-element-admin/blob/master/LICENSE)
-
-Copyright (c) 2017-present PanJiaChen
+> 이 프로젝트는 학습목적으로 만들었습니다.<br/>
+> 실무수준의 프로젝트이지만 학습용으로 만들었기 때문에 이 코드를 활용하여 이득을 취하거나 무단 배포할 경우 법적으로 문제될 수 있습니다.

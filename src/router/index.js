@@ -117,10 +117,20 @@ export const constantRoutes = [
       },
       {
         path: "request-page",
-        component: () => import("@/views/notices/components/request.vue"),
+        component: () => import("@/views/notices/request.vue"),
         name: "request-page",
         meta: {
           title: "라스트오더에게 요청",
+          noCache: true
+        }
+      },
+      {
+        path: "excel-upload",
+        component: () => import("@/views/notices/components/excelUpload"),
+        name: "excel-upload",
+        hidden: true,
+        meta: {
+          title: "공지사항 작성",
           noCache: true
         }
       },
@@ -147,6 +157,61 @@ export const constantRoutes = [
       }
     ]
   },
+
+  // 모상품 관리
+  {
+    path: "/storeitem",
+    component: Layout,
+    redirect: "/storeitem/index",
+    name: "StoreItems",
+    meta: {
+      title: "모상품 관리",
+      icon: "el-icon-s-cooperation",
+      noCache: true
+    },
+    children: [
+      {
+        path: "index",
+        component: () => import("@/views/storeitem/Index"),
+        name: "StoreItemsList",
+        meta: {
+          title: "모상품관리",
+          noCache: true
+        }
+      },
+      {
+        path: "create",
+        component: () => import("@/views/storeitem/Form"),
+        name: "StoreItemsCreate",
+        hidden: true,
+        meta: {
+          title: "모상품추가(개별)",
+          noCache: true
+        }
+      },
+      {
+        path: "update/:id",
+        component: () => import("@/views/storeitem/Form"),
+        name: "StoreItemsUpdate",
+        hidden: true,
+        meta: {
+          title: "모상품수정",
+          noCache: true
+        }
+      },
+      {
+        path: "csv",
+        component: () => import("@/views/storeitem/Csv"),
+        name: "StoreItemsCsv",
+        hidden: true,
+        meta: {
+          title: "모상품추가(엑셀)",
+          noCache: true
+        }
+      }
+    ]
+  },
+
   {
     path: "/guide",
     component: Layout,

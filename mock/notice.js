@@ -6,6 +6,7 @@ const count = 204;
 const baseContent = "hello world";
 const image_uri =
   "https://wpimg.wallstcn.com/e4558086-631c-425c-9430-56ffb46e70b3";
+const excelData = `${Math.random().toString(13)}.xls`;
 
 for (let i = 0; i < count; i++) {
   List.push(
@@ -25,7 +26,8 @@ for (let i = 0; i < count; i++) {
       comment_disabled: true,
       pageviews: "@integer(300, 5000)",
       image_uri,
-      platforms: ["a-platform"]
+      platforms: ["a-platform"],
+      excelData: excelData
     })
   );
 }

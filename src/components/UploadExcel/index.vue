@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input ref="excel-upload-input" class="excel-upload-input" type="file" accept=".xlsx, .xls" @change="handleClick">
+    <input ref="excel-upload-input" class="excel-upload-input" type="file" accept=".xlsx, .xls, .csv" @change="handleClick">
     <div class="drop" @drop="handleDrop" @dragover="handleDragover" @dragenter="handleDragover">
       Drop excel file here or
       <el-button :loading="loading" style="margin-left:16px;" size="mini" type="primary" @click="handleUpload">
@@ -18,6 +18,7 @@ export default {
     beforeUpload: Function, // eslint-disable-line
     onSuccess: Function// eslint-disable-line
   },
+
   data() {
     return {
       loading: false,
@@ -29,6 +30,8 @@ export default {
   },
   methods: {
     generateData({ header, results }) {
+      console.log("this.onSuccess>>>", this.onSuccess)
+      console.log("this.onSuccess(this.excelData)>>>", this.onSuccess(this.excelData))
       this.excelData.header = header
       this.excelData.results = results
       this.onSuccess && this.onSuccess(this.excelData)
@@ -36,6 +39,7 @@ export default {
     handleDrop(e) {
       e.stopPropagation()
       e.preventDefault()
+      console.log("e.dataTransfer >>>>", e.dataTransfer.files)
       if (this.loading) return
       const files = e.dataTransfer.files
       if (files.length !== 1) {

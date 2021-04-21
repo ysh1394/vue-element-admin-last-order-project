@@ -13,6 +13,7 @@ import {
 // import { getNowDate } from "@/views/notices/components/detail.vue";
 import router from "@/router";
 // import route from "@/router";
+import { Message } from "element-ui";
 
 const STORAGE_KEY = "notices";
 
@@ -36,7 +37,7 @@ export default {
       { label: "ID Descending", key: "-id" }
     ],
     // detail && create
-    data: null,
+    data: "",
     nowDate: "",
     postForm: {
       id: "",
@@ -153,29 +154,42 @@ export default {
       window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state.list));
     },
 
-    getList({ state, commit }) {
-      console.log(
-        "**index.vue** actions -> getList 의 state.list >>>>",
-        state.list
-      );
-      commit("assignLoading", false);
-      fetchNoticeList(state.listQuery).then(response => {
-        commit("assignList", response.data.items);
-        commit("assignPage", response.data.total);
-        commit("assignLoading", true);
-        console.log(
-          "**index.vue** actions -> getList -> fetch 의 state.list >>>>",
-          state.list
-        );
-        console.log(
-          "**index.vue** actions -> getList -> fetch 의 response.data >>>>",
-          response.data
-        );
-      });
+    async getList({ state, commit }) {
+      commit("assignLoading", true);
+      const result = await fetchNoticeList(state.listQuery);
+      if (result) {
+        console.log("fetchStoreItems result", result);
+        commit("assignList", result.data.items);
+        commit("assignPage", result.data.total);
+      }
       setTimeout(() => {
         commit("assignLoading", false);
       }, 1.5 * 1000);
     },
+
+    // getList({ state, commit }) {
+    //   console.log(
+    //     "**index.vue** actions -> getList 의 state.list >>>>",
+    //     state.list
+    //   );
+    //   commit("assignLoading", false);
+    //   fetchNoticeList(state.listQuery).then(response => {
+    //     commit("assignList", response.data.items);
+    //     commit("assignPage", response.data.total);
+    //     commit("assignLoading", true);
+    //     console.log(
+    //       "**index.vue** actions -> getList -> fetch 의 state.list >>>>",
+    //       state.list
+    //     );
+    //     console.log(
+    //       "**index.vue** actions -> getList -> fetch 의 response.data >>>>",
+    //       response.data
+    //     );
+    //   });
+    //   setTimeout(() => {
+    //     commit("assignLoading", false);
+    //   }, 1.5 * 1000);
+    // },
 
     handleSearch({ state, commit, dispatch }) {
       if (state.listQuery.s) {
@@ -244,14 +258,22 @@ export default {
           commit("updateContent", state.data.content);
           commit("updateTime", "nowDate");
 
-          alert("업데이트 되었습니다.");
+          // alert("업데이트 되었습니다.");
+          Message({
+            message: "업데이트 되었습니다",
+            type: "success"
+          });
           dispatch("setLocalStorage");
 
           router.push({
             path: "/notices"
           });
         } else {
-          alert("제목 및 내용을 입력해주세요.");
+          // alert("제목 및 내용을 입력해주세요.");
+          Message({
+            message: "제목 및 내용을 입력해주세요.",
+            type: "warning"
+          });
         }
       });
     },
@@ -281,7 +303,11 @@ export default {
             state.postForm
           );
           dispatch("setLocalStorage");
-          alert("업데이트 되었습니다.");
+          // alert("업데이트 되었습니다.");
+          Message({
+            message: "업데이트 되었습니다",
+            type: "success"
+          });
           commit("fetchId", response.data.newId);
           commit("resetPostFormTitle", "");
           commit("resetPostFormContent", "");
@@ -292,7 +318,11 @@ export default {
           console.log("createArticle의 state.list >>>>", state.list);
           console.log("createArticle의 state.total >>>>", state.total);
         } else {
-          alert("제목 및 내용을 입력해주세요.");
+          // alert("제목 및 내용을 입력해주세요.");
+          Message({
+            message: "제목 및 내용을 입력해주세요.",
+            type: "warning"
+          });
         }
       });
     }

@@ -4,6 +4,7 @@
     <!-- <button @click="deleteData">삭제 테스트</button> -->
     <!-- <button @click="addData">추가 테스트</button> -->
     <div class="app-container">
+
       <div class="section">
         <el-form class="filter-container">
           <div>
@@ -23,9 +24,15 @@
                 검색
               </el-button>
             </el-input>
+
+          </div>
+          <div>
+            <el-button :loading="downloadLoading" type="primary" icon="el-icon-document" @click="handleDownload">
+              Export Excel
+            </el-button>
           </div>
           <router-link
-            :to="{ name: 'create' }"
+            :to="{ name: 'excel-upload' }"
             exact
           >
             <el-button>
@@ -33,9 +40,21 @@
               글쓰기
             </el-button>
           </router-link>
+
         </el-form>
       </div>
       <div class="section table-area">
+        <!-- <el-table
+          ref="multipleTable"
+          v-loading="listLoading"
+          :data="list"
+          fit
+          stripe
+          highlight-current-row
+          style="width: 100%;"
+          @sort-change="sortChange"
+          @selection-change="handleSelectionChange"
+        > -->
         <el-table
           ref="multipleTable"
           v-loading="listLoading"
@@ -45,12 +64,19 @@
           highlight-current-row
           style="width: 100%;"
           @sort-change="sortChange"
+          @selection-change="handleSelectionChange"
         >
+          <el-table-column type="selection" align="center" :min-width="5" />
+          <!-- <el-table-column align="center" label="Id" width="95">
+            <template slot-scope="scope">
+              {{ scope.$index }}
+            </template>
+          </el-table-column> -->
           <el-table-column
             label="No"
             prop="id"
             align="center"
-            :min-width="5"
+            :min-width="8"
             sortable="custom"
             :class-name="getSortClass('id')"
           >
@@ -65,7 +91,7 @@
             label="작성일"
             prop="date"
             align="center"
-            :min-width="10"
+            :min-width="15"
           >
             <template slot-scope="{ row }">
               <router-link
@@ -74,12 +100,12 @@
               >{{ row.display_time }}</router-link>
             </template>
           </el-table-column>
-          <el-table-column label="제목" :min-width="30" align="center">
+          <el-table-column label="제목" :min-width="25" align="center">
             <template slot-scope="{ row }">
               <router-link
                 :to="{ name: 'detail', params: { contentId: row.id }}"
                 exact
-              >{{ row.title }}</router-link>
+              >{{ `${row.title.slice(0, 20)}...` }}</router-link>
             </template>
           </el-table-column>
           <el-table-column label="작성자" align="center" :min-width="10">
@@ -95,7 +121,7 @@
               <router-link
                 :to="{ name: 'detail', params: { contentId: row.id }}"
                 exact
-              >{{ row.content }}</router-link>
+              >{{ row.excelData }}</router-link>
             </template>
           </el-table-column>
         </el-table>
@@ -126,6 +152,9 @@ export default {
   data() {
     console.log("**index.vue** data 안쪽 this.list >>>>", this.list)
     return {
+      multipleSelection: [],
+      downloadLoading: false,
+      filename: ''
     }
   },
 
@@ -159,6 +188,39 @@ export default {
     getSortClass: function(key) {
       const sort = this.listQuery.sort
       return sort === `+${key}` ? 'ascending' : 'descending'
+    },
+
+    handleSelectionChange(val) {
+      this.multipleSelection = val
+      console.log("this.multipleSelection >>>>", this.multipleSelection)
+    },
+
+    handleDownload() {
+      if (this.multipleSelection.length) {
+        this.downloadLoading = true
+        import('@/vendor/Export2Excel').then(excel => {
+          const tHeader = ['Id', 'Title', 'Author', 'content', 'Date']
+          const filterVal = ['id', 'title', 'author', 'pageviews', 'display_time']
+          const list = this.multipleSelection
+          const data = this.formatJson(filterVal, list)
+          excel.export_json_to_excel({
+            header: tHeader,
+            data,
+            filename: this.filename
+          })
+          this.$refs.multipleTable.clearSelection()
+          this.downloadLoading = false
+        })
+      } else {
+        this.$message({
+          message: 'Please select at least one item',
+          type: 'warning'
+        })
+      }
+    },
+
+    formatJson(filterVal, jsonData) {
+      return jsonData.map(v => filterVal.map(j => v[j]))
     },
 
     deleteData() {
@@ -306,4 +368,10 @@ div.pagination {
   margin: 20px 0px;
 }
 
+div button.el-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+}
 </style>

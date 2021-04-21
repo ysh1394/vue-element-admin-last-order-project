@@ -79,7 +79,7 @@
               <router-link
                 :to="{ name: 'detail', params: { contentId: row.id }}"
                 exact
-              >{{ row.title }}</router-link>
+              >{{ `${row.title.slice(0, 20)}...` }}</router-link>
             </template>
           </el-table-column>
           <el-table-column label="작성자" align="center" :min-width="10">
@@ -95,7 +95,7 @@
               <router-link
                 :to="{ name: 'detail', params: { contentId: row.id }}"
                 exact
-              >{{ row.content }}</router-link>
+              >{{ `${row.content.slice(0, 20)}...` }}</router-link>
             </template>
           </el-table-column>
         </el-table>
